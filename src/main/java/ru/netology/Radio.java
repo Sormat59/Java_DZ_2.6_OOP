@@ -7,22 +7,12 @@ public class Radio {
 
 
     public int getCurrentStation() {
-        if (currentStation >= 10) {
-            currentStation = 0;
-        } else if (currentStation < 0) {
-            currentStation = 9;
-        }
         return currentStation;
     }
 
     public int getCurrentVolume() {
-        if (currentVolume >= 10) {
-            currentVolume = 10;
-        }
-        if (currentVolume <= 0) {
-            currentVolume = 0;
-        }
-       return currentVolume;
+
+        return currentVolume;
     }
 
     public void setCurrentStation(int newCurrentStation) {
@@ -36,14 +26,26 @@ public class Radio {
     }
 
     public void setToNextStation() {
-        this.currentStation = currentStation + 1;
+        if (currentStation < 9) {
+            currentStation = currentStation + 1;
+            return;
+        } else {
+            currentStation = 0;
+        }
     }
 
 
     public void setToPrevStation() {
-        this.currentStation = currentStation - 1;
+        if (currentStation > 0) {
+            currentStation = currentStation - 1;
+        }
+
+        else {
+            currentStation = 9;
+        }
 
     }
+
 
     public void setCurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume <= 0) {
@@ -56,17 +58,20 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        currentVolume = currentVolume + 1;
+        if (currentVolume < 10) {
+            currentVolume = currentVolume + 1;
+        }
     }
 
     public void setMaxVolume() {
 
         currentVolume = 10;
-
     }
 
     public void turnDownTheVolume() {
-        currentVolume = currentVolume - 1;
+        if (currentVolume > 0) {
+            currentVolume = currentVolume - 1;
+        }
     }
 
     public void setMinVolume() {
