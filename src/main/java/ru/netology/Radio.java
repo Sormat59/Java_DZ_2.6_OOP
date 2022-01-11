@@ -1,5 +1,8 @@
 package ru.netology;
 
+import lombok.Data;
+
+@Data
 public class Radio {
 
     private int id;

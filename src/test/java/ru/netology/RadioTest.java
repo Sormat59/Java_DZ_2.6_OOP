@@ -9,10 +9,19 @@ public class RadioTest {
     Radio rdo = new Radio();
 
     @Test
-    public void shouldSetCurrentStation() {
+    public void shouldSetCurrentStationBoundary() {
 
         rdo.setCurrentStation(15);
         int expected = 0;
+        int actual = rdo.getCurrentStation();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetCurrentStation() {
+
+        rdo.setCurrentStation(8);
+        int expected = 8;
         int actual = rdo.getCurrentStation();
         assertEquals(expected, actual);
     }
