@@ -5,15 +5,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RadioTest {
-    Radio rdo2 = new Radio(10);
+    Radio rdo2 = new Radio(20);
     Radio rdo = new Radio();
 
     @Test
     public void shouldSetCurrentStationBoundary() {
 
-        rdo.setCurrentStation(15);
-        int expected = 0;
-        int actual = rdo.getCurrentStation();
+        rdo2.setCurrentStation(15);
+        int expected = 15;
+        int actual = rdo2.getCurrentStation();
         assertEquals(expected, actual);
     }
 
