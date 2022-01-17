@@ -5,7 +5,6 @@ public class Radio {
     private int id;
     private String name = "Smart radio";
     private int numberOfRadioStations = 10;
-    private int maxStation = numberOfRadioStations - 1;
     private int minStation = 0;
     private int currentStation;
     private int maxVolume = setMaxVolume();
@@ -13,13 +12,11 @@ public class Radio {
     private int currentVolume;
 
     public Radio() {
-
     }
 
     public Radio(int numberOfRadioStations) {
         this.numberOfRadioStations = numberOfRadioStations;
     }
-
 
     public int getCurrentStation() {
         return currentStation;
@@ -34,14 +31,14 @@ public class Radio {
         if (newCurrentStation < minStation) {
             return;
         }
-        if (newCurrentStation > maxStation) {
+        if (newCurrentStation > numberOfRadioStations -1) {
             return;
         }
         currentStation = newCurrentStation;
     }
 
     public void setToNextStation() {
-        if (currentStation < maxStation) {
+        if (currentStation < numberOfRadioStations -1) {
             currentStation = currentStation + 1;
             return;
         } else {
@@ -54,7 +51,7 @@ public class Radio {
         if (currentStation > minStation) {
             currentStation = currentStation - 1;
         } else {
-            currentStation = maxStation;
+            currentStation = numberOfRadioStations -1;
         }
 
     }
